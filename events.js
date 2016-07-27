@@ -62,5 +62,5 @@ const wawa = () => {
 }
 
 console.log(new Date(), 'OK!')
-// wawa()
+wawa()
 setInterval(wawa, 5 * 3600 * 1000)
