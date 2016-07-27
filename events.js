@@ -7,7 +7,7 @@ const ghUserEvents = require('rollodeqc-gh-user-events')
 const _ = require('lodash')
 const db = require('nano')('http://localhost:5984/evs2')
 const rlp = require('rate-limit-promise')
-const request = rlp(3, 800)
+const request = rlp(10, 15000)
 
 const wrk = (err, body) => {
   let count = body.rows.length
