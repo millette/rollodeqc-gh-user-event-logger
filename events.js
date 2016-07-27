@@ -7,19 +7,15 @@ const ghUserEvents = require('rollodeqc-gh-user-events')
 const _ = require('lodash')
 const db = require('nano')('http://localhost:5984/evs2')
 const rlp = require('rate-limit-promise')
+const request = rlp(3, 800)
 
-db.list({include_docs: true, startkey: 'github:user:id:', endkey: 'github:user:id:\ufff0'}, (err, body) => {
-  const delay = 2000
-  const request = rlp(5, delay) // 5, 7500
+const wrk = (err, body) => {
   let count = body.rows.length
   const store = { }
   const store2 = { }
   const contributors = []
-  const timer = setInterval(() => {
-    console.log(new Date(), 'ping', count, 'to go')
-    if (count < 1) { clearInterval(timer) }
-  }, 3 * delay)
-  if (err) { return console.log('err:', err) }
+
+  if (err) { return console.log(new Date(), 'err:', err) }
   console.log(body.rows.length)
   _.shuffle(body.rows).forEach((doc) => {
     contributors.push(doc.doc.login)
@@ -58,4 +54,13 @@ db.list({include_docs: true, startkey: 'github:user:id:', endkey: 'github:user:i
         }
       })
   })
-})
+}
+
+const wawa = () => {
+  console.log(new Date(), 'wawa...')
+  db.list({ include_docs: true, startkey: 'github:user:id:', endkey: 'github:user:id:\ufff0' }, wrk)
+}
+
+console.log(new Date(), 'OK!')
+// wawa()
+setInterval(wawa, 5 * 3600 * 1000)
