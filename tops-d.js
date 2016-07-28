@@ -52,6 +52,10 @@ const type = cli.flags.type || ''
 const top = cli.flags.top || 10
 
 db.view('app', 'reposhortnameperday', { group_level: 3, startkey: [day, type], endkey: [day, type + '\ufff0'] }, (err, bod) => {
+  if (err) {
+    console.log('ERR:', err)
+    return
+  }
   const z = _.groupBy(bod.rows, (x) => x.key[1])
   const more = {}
   let r

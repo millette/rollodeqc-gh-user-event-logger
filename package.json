@@ -20,6 +20,9 @@
   },
   "files": [
     "index.js",
+    "events.js",
+    "tops-d.js",
+    "tops-w.js",
     "cli.js"
   ],
   "keywords": [

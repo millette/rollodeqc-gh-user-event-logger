@@ -7,7 +7,7 @@ const ghUserEvents = require('rollodeqc-gh-user-events')
 const _ = require('lodash')
 const db = require('nano')('http://localhost:5984/evs2')
 const rlp = require('rate-limit-promise')
-const request = rlp(3, 7000)
+const request = rlp(10, 30000)
 
 const wrk = (err, body) => {
   let count
@@ -40,7 +40,7 @@ const wrk = (err, body) => {
         )
         return new Promise(
           (resolve, reject) => db.bulk(
-            { docs: docs }, (err, bod) => err ? reject(e) : resolve(bod.length)
+            { docs: docs }, (err, bod) => err ? reject(err) : resolve(bod.length)
           )
         )
       })
@@ -64,4 +64,4 @@ const wawa = () => {
 
 console.log(new Date(), 'OK!')
 wawa()
-setInterval(wawa, 5 * 3600 * 1000)
+setInterval(wawa, 12 * 3600 * 1000)

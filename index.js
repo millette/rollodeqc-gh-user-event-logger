@@ -23,10 +23,10 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 'use strict'
 
 // npm
-const ghUser = require('rollodeqc-gh-user')
-const ghUserEvents = require('rollodeqc-gh-user-events')
-const _ = require('lodash')
-const db = require('nano')('http://localhost:5984/evs')
+// const ghUser = require('rollodeqc-gh-user')
+// const ghUserEvents = require('rollodeqc-gh-user-events')
+// const _ = require('lodash')
+// const db = require('nano')('http://localhost:5984/evs')
 
 module.exports = function (str, opts) {
   if (typeof str !== 'string') {

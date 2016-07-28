@@ -25,17 +25,15 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 'use strict'
 // npm
 const meow = require('meow')
-// const ghGot = require('gh-got')
-// const rateLimit = require('rate-limit-promise')
+const ghGot = require('gh-got')
+const rateLimit = require('rate-limit-promise')
 const updateNotifier = require('update-notifier')
-// const _ = require('lodash')
-// const db = require('nano')('http://localhost:5984/evs')
+const _ = require('lodash')
+const db = require('nano')('http://localhost:5984/evs')
 updateNotifier({ pkg: require('./package.json') }).notify()
 
 // self
-const rollodeqcGhUserEventLogger = require('./')
-
-// const delay = 8000
+// const rollodeqcGhUserEventLogger = require('./')
 
 const cli = meow([
   'Usage',
@@ -51,11 +49,12 @@ const cli = meow([
   '  ponies & rainbows'
 ])
 
+const delay = cli.flags.delay || 8000
+
 const contributors = require('./contributors.json').rows.map((x) => x.id.split(':')[1])
 
 const sample = _.sampleSize(contributors, 5048)
 
-/*
 const doit = (s) => {
   ghGot(`users/${s}`)
     .then((user) => {
@@ -88,5 +87,3 @@ const t = setTimeout(() => {
     clearTimeout(t)
   }
 }, delay + 500)
-
-*/

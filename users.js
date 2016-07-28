@@ -4,7 +4,7 @@
 // npm
 const ghUser = require('rollodeqc-gh-user')
 const ghUserEvents = require('rollodeqc-gh-user-events')
-const _ = require('lodash')
+// const _ = require('lodash')
 const db = require('nano')('http://localhost:5984/evs2')
 const rlp = require('rate-limit-promise')
 
@@ -32,7 +32,7 @@ contributors.forEach((user) => {
       )
       return new Promise(
         (resolve, reject) => db.bulk(
-          { docs: docs }, (err, bod) => err ? reject(e) : resolve(bod.length)
+          { docs: docs }, (err, bod) => err ? reject(err) : resolve(bod.length)
         )
       )
     })

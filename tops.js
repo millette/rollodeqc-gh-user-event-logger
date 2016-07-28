@@ -7,6 +7,10 @@ const db = require('nano')('http://localhost:5984/evs2')
 
 // 'http://localhost:5984/evs2/_design/app/_view/reposhortname?group_level=2'
 db.view('app', 'repofullname', { group_level: 2 }, (err, bod) => {
+  if (err) {
+    console.log('ERR:', err)
+    return
+  }
   const z = _.groupBy(bod.rows, (x) => x.key[0])
   const more = {}
   let r
