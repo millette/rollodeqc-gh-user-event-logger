@@ -7,15 +7,16 @@ const ghUserEvents = require('rollodeqc-gh-user-events')
 const _ = require('lodash')
 const db = require('nano')('http://localhost:5984/evs2')
 const rlp = require('rate-limit-promise')
-const request = rlp(10, 15000)
+const request = rlp(5, 8000)
 
 const wrk = (err, body) => {
-  let count = body.rows.length
+  let count
   const store = { }
   const store2 = { }
   const contributors = []
 
   if (err) { return console.log(new Date(), 'err:', err) }
+  count = body.rows.length
   console.log(body.rows.length)
   _.shuffle(body.rows).forEach((doc) => {
     contributors.push(doc.doc.login)
