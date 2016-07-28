@@ -7,7 +7,7 @@ const ghUserEvents = require('rollodeqc-gh-user-events')
 const _ = require('lodash')
 const db = require('nano')('http://localhost:5984/evs2')
 const rlp = require('rate-limit-promise')
-const request = rlp(5, 8000)
+const request = rlp(3, 7000)
 
 const wrk = (err, body) => {
   let count
@@ -51,7 +51,7 @@ const wrk = (err, body) => {
           console.log(new Date(), 'NO-MODIF:', count, user, e.path)
         } else {
           console.log(new Date(), 'ERR:     ', count, user, e)
-          count = 0 // only set count to 0 on rate limit error
+          process.exit()
         }
       })
   })
