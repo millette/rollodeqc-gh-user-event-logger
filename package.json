@@ -30,21 +30,21 @@
     "cli"
   ],
   "dependencies": {
-    "gh-got": "^4.0.0",
-    "lodash": "^4.14.0",
+    "gh-got": "^5.0.0",
+    "lodash": "^4.15.0",
     "meow": "^3.7.0",
     "nano": "^6.2.0",
     "rate-limit-promise": "^1.0.2",
-    "rollodeqc-gh-user": "^0.1.1",
-    "rollodeqc-gh-user-events": "^0.2.1",
+    "rollodeqc-gh-user": "^0.1.2",
+    "rollodeqc-gh-user-events": "^0.2.2",
     "update-notifier": "^1.0.2"
   },
   "devDependencies": {
-    "ava": "^0.15.2",
+    "ava": "^0.16.0",
     "babel-eslint": "^6.1.2",
-    "coveralls": "^2.11.11",
-    "nyc": "^7.0.0",
-    "standard": "^7.1.2"
+    "coveralls": "^2.11.12",
+    "nyc": "^8.1.0",
+    "standard": "^8.0.0"
   },
   "standard": {
     "parser": "babel-eslint"
