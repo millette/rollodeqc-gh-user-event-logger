@@ -52,15 +52,14 @@ const cli = meow([
   default: { type: 'PushEvent' }
 })
 
-
 const type = cli.flags.type
 const top = cli.flags.top || 10
 
-var weekOfYear = function(dd){
+var weekOfYear = function (dd) {
   var d = new Date(dd)
-  d.setHours(0,0,0)
-  d.setDate(d.getDate()+4-(d.getDay()||7))
-  return Math.ceil((((d-new Date(d.getFullYear(),0,1))/8.64e7)+1)/7)
+  d.setHours(0, 0, 0)
+  d.setDate(d.getDate() + 4 - (d.getDay() || 7))
+  return Math.ceil((((d - new Date(d.getFullYear(), 0, 1)) / 8.64e7) + 1) / 7)
 }
 
 let week
