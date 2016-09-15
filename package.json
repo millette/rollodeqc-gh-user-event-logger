@@ -1,6 +1,6 @@
 {
   "name": "rollodeqc-gh-user-event-logger",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Log Github user events to CouchDB.",
   "license": "AGPL-3.0",
   "repository": "millette/rollodeqc-gh-user-event-logger",
