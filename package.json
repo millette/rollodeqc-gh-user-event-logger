@@ -37,10 +37,10 @@
     "rate-limit-promise": "^1.0.2",
     "rollodeqc-gh-user": "^0.3.0",
     "rollodeqc-gh-user-events": "^0.3.0",
-    "update-notifier": "^1.0.3"
+    "update-notifier": "^2.1.0"
   },
   "devDependencies": {
-    "ava": "^0.18.1",
+    "ava": "^0.18.2",
     "babel-eslint": "^7.1.1",
     "coveralls": "^2.11.16",
     "nyc": "^10.1.2",
