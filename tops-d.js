@@ -67,4 +67,3 @@ db.view('app', 'reposhortnameperday', { group_level: 3, startkey: [day, type], e
   }
   console.log(JSON.stringify(more, null, ' '))
 })
-
