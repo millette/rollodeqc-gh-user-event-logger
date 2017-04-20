@@ -40,7 +40,7 @@
     "update-notifier": "^2.1.0"
   },
   "devDependencies": {
-    "ava": "^0.18.2",
+    "ava": "^0.19.1",
     "babel-eslint": "^7.2.2",
     "coveralls": "^2.13.0",
     "nyc": "^10.2.0",
