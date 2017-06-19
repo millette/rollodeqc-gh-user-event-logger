@@ -37,7 +37,7 @@
     "rate-limit-promise": "^1.0.2",
     "rollodeqc-gh-user": "^0.4.0",
     "rollodeqc-gh-user-events": "^0.4.0",
-    "update-notifier": "^2.1.0"
+    "update-notifier": "^2.2.0"
   },
   "devDependencies": {
     "ava": "^0.19.1",
